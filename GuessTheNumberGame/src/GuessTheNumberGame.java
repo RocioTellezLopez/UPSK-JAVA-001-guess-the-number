@@ -28,15 +28,18 @@ public class GuessTheNumberGame {
         return continueGame;
     };
 
-    private static String playerName () {
+    public static String playerName() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bienvenido al juego - Adivina el número 🔮🔮🔮!");
         System.out.print("Jugador, ingresa tu nombre: ");
-        return scanner.next();
+        String name = scanner.nextLine();
+        return name;
     }
 
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
 
         targetNumber = random.nextInt(100) + 1;
         continueGame = true;
@@ -46,7 +49,7 @@ public class GuessTheNumberGame {
         HumanPlayer humanPlayer = new HumanPlayer(playerName());
         ComputerPlayer computerGame = new ComputerPlayer("Computadora");
 
-        while (continueGame == true) {
+        while (continueGame) {
 
             boolean continueHuman = checkGuess(humanPlayer);
             if(continueHuman) {
@@ -59,7 +62,7 @@ public class GuessTheNumberGame {
             }else {
                 System.out.println("Intentos " + humanPlayer.getName() + ": " + humanPlayer.guesses);
                 System.out.println("Total de intentos: " + humanPlayer.guesses.size());
-                System.out.println("El juego termino!");
+                System.out.println("El juego termino!".);
             }
 
         }

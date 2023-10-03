@@ -2,11 +2,14 @@ import java.util.Scanner;
 
 public class HumanPlayer extends Player{
 
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public HumanPlayer(String name) {
         super(name);
-        scanner = new Scanner(System.in);
     }
 
     @Override
@@ -14,7 +17,6 @@ public class HumanPlayer extends Player{
         System.out.println("--------" + "Round: " + getName() + "--------");
         System.out.print(getName() + ", ingresa tu suposición: ");
         int guess = scanner.nextInt();
-//        getGuesses(guess);
         return guess;
     }
 }
